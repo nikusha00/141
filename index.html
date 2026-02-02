@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <title>nikusha</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff3434, #ffb649);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px;
+        border-radius: 25px;
+        text-align: center;
+        color: rgb(255, 0, 0);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        width: 360px;
+      }
+
+      .teddy {
+        font-size: 64px;
+        margin-bottom: 10px;
+        animation: float 2s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-size: 22px;
+        margin-bottom: 30px;
+        font-weight: normal;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        position: relative;
+        height: 60px;
+      }
+
+      button {
+        padding: 12px 26px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.25s ease;
+        white-space: nowrap;
+      }
+
+      .yes {
+        background: #ff0000;
+        color: white;
+      }
+
+      .yes:hover {
+        background: #ff0000;
+        transform: scale(1.2);
+      }
+
+      .no {
+        background: white;
+        color: #ff0000;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="teddy">🧸</div>
+      <h1>მარრ იქნები ჩემი ვალენტინი? 🫶🏼</h1>
+
+      <div class="buttons">
+        <button class="yes" onclick="yesClick()">დიახ 💖</button>
+        <button class="no" id="noBtn">არა 💔</button>
+      </div>
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+
+      // ღილაკი "არა" გარბის
+      noBtn.addEventListener("mouseover", () => {
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+
+        noBtn.style.position = "fixed";
+        noBtn.style.left = Math.random() * maxX + "px";
+        noBtn.style.top = Math.random() * maxY + "px";
+      });
+
+      function yesClick() {
+        document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg,#ff0844,#ffb199);
+          color:white;
+          font-family:Arial;
+          text-align:center;
+        ">
+          <img 
+  src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2JndXhjYXp2NWEwdDJ4MXk0MXVrd2R1OGZrM3E4ZzF1N296ajY5YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ukmZRuEqc2Rbi/giphy.gif"
+  alt="Happy GIF"
+  style="width:260px; border-radius:20px; margin-bottom:20px;"
+>
+          <h1>მიყვარხარ🫶🏼</h1>
+          <p></p>
+        </div>
+      `;
+      }
+    </script>
+  </body>
+</html>
